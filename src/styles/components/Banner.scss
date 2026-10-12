@@ -1,0 +1,68 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// O Figma não entrega a foto de fundo do banner como arquivo separado,
+// então o clima "Black Friday neon" é reproduzido com gradientes CSS.
+.banner {
+  height: 390px;
+  color: $color-white;
+  background:
+    radial-gradient(circle at 78% 30%, rgba(24, 160, 255, 0.55) 0, rgba(24, 160, 255, 0) 22%),
+    radial-gradient(circle at 92% 55%, rgba(24, 120, 255, 0.5) 0, rgba(24, 120, 255, 0) 20%),
+    radial-gradient(circle at 38% 12%, rgba(255, 60, 120, 0.4) 0, rgba(255, 60, 120, 0) 14%),
+    linear-gradient(100deg, #0b0b0f 0%, #11131c 45%, #0a1226 100%);
+
+  &__inner {
+    @include container;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-inline: 16px;
+  }
+
+  &__title {
+    max-width: 600px;
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1;
+
+    @include respond-below($bp-mobile) {
+      font-size: 34px;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 14px;
+    font-size: 32px;
+    font-weight: 400;
+
+    strong {
+      font-weight: 700;
+      color: $color-highlight;
+    }
+
+    @include respond-below($bp-mobile) {
+      font-size: 22px;
+    }
+  }
+
+  &__button {
+    @include flex-center;
+    width: 227px;
+    height: 60px;
+    margin-top: 40px;
+    border-radius: $radius-sm;
+    background: $color-highlight;
+    color: $color-navy;
+    font-size: 22px;
+    font-weight: 600;
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.95);
+    }
+
+    @include focus-ring($color-white);
+  }
+}

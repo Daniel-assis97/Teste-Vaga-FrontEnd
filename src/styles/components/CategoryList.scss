@@ -1,0 +1,59 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.category-list {
+  padding: 40px 16px 48px;
+
+  &__items {
+    @include container;
+    display: flex;
+    justify-content: center;
+    gap: 44px;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    @include reset-button;
+    width: 129px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    color: $color-text-strong;
+    @include focus-ring;
+  }
+
+  &__card {
+    @include flex-center;
+    width: 129px;
+    height: 128px;
+    border-radius: $radius-lg;
+    background: $color-white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  &__button:hover &__card {
+    transform: translateY(-2px);
+    box-shadow: $shadow-card;
+  }
+
+  &__button--active {
+    color: $color-secondary;
+
+    .category-list__card {
+      box-shadow: $shadow-card;
+    }
+
+    .category-list__label {
+      font-weight: 600;
+    }
+  }
+}

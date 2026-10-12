@@ -1,0 +1,50 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.benefits-bar {
+  height: 31px;
+  background: $color-white;
+
+  &__list {
+    @include container;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 126px;
+    padding-inline: 16px;
+
+    @include respond-below($bp-tablet) {
+      gap: 24px;
+    }
+
+    @include respond-below($bp-mobile) {
+      justify-content: space-between;
+      gap: 8px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: $color-text-muted;
+    white-space: nowrap;
+
+    strong {
+      font-weight: 600;
+      color: $color-secondary;
+    }
+
+    @include respond-below($bp-mobile) {
+      font-size: 10px;
+      gap: 4px;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    color: $color-text-muted;
+  }
+}

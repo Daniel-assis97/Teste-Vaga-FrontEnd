@@ -1,0 +1,34 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.quantity-selector {
+  display: inline-flex;
+  align-items: center;
+  width: 110px;
+  height: 36px;
+  border: 1px solid $color-border-strong;
+  border-radius: 3px;
+  background: $color-white;
+
+  &__button {
+    @include reset-button;
+    @include flex-center;
+    width: 32px;
+    height: 100%;
+    color: $color-navy;
+
+    &:disabled {
+      color: $color-text-light;
+      cursor: default;
+    }
+
+    @include focus-ring;
+  }
+
+  &__value {
+    flex: 1;
+    text-align: center;
+    font-size: 15px;
+    color: $color-text-strong;
+  }
+}

@@ -1,0 +1,93 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.header {
+  background: $color-white;
+
+  &__inner {
+    @include container;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-inline: 16px;
+
+    @include respond-below($bp-mobile) {
+      flex-wrap: wrap;
+      height: auto;
+      padding-block: 12px;
+    }
+  }
+
+  &__logo {
+    flex: none;
+    display: block;
+    @include focus-ring;
+  }
+
+  &__search {
+    position: relative;
+    flex: 0 1 630px;
+    height: 48px;
+    margin-left: 0;
+
+    @include respond-below($bp-mobile) {
+      order: 3;
+      flex-basis: 100%;
+    }
+  }
+
+  &__search-input {
+    width: 100%;
+    height: 100%;
+    padding: 0 56px 0 20px;
+    border: 0;
+    border-radius: 10px;
+    background: $color-input-bg;
+    font-size: 14px;
+    color: $color-text;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+
+    @include focus-ring;
+  }
+
+  &__search-button {
+    @include reset-button;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 56px;
+    height: 100%;
+    @include flex-center;
+    color: $color-text-muted;
+    @include focus-ring;
+  }
+
+  &__actions {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+
+  &__action {
+    @include reset-button;
+    display: flex;
+    color: $color-text-muted;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-secondary;
+    }
+
+    @include focus-ring;
+  }
+}

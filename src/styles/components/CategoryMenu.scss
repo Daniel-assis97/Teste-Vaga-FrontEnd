@@ -1,0 +1,48 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.category-menu {
+  @include container;
+  height: 41px;
+  background: $color-white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1;
+
+  &__list {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 69px;
+    overflow-x: auto;
+    gap: 24px;
+
+    @include respond-below($bp-tablet) {
+      padding-inline: 16px;
+    }
+  }
+
+  &__link {
+    display: flex; // flex (e não inline-flex) evita que o ícone da coroa desloque a linha base
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: $color-text-muted;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-secondary;
+    }
+
+    &--highlight {
+      font-weight: 600;
+      color: $color-secondary;
+    }
+
+    @include focus-ring;
+  }
+}

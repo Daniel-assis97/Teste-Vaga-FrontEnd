@@ -1,0 +1,82 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.product-carousel {
+  --gap: clamp(16px, 4.36vw, 80px);
+
+  position: relative;
+  width: min(1636px, calc(100% - 160px));
+  margin-inline: auto;
+
+  @include respond-below($bp-mobile) {
+    width: calc(100% - 96px);
+    --gap: 16px;
+  }
+
+  // Margem negativa + padding reservam espaço para a sombra dos cards,
+  // sem alterar a medida da área útil do carrossel.
+  &__viewport {
+    overflow: hidden;
+    padding: 16px 20px 28px;
+    margin: -16px -20px -28px;
+  }
+
+  &__track {
+    display: flex;
+    gap: var(--gap);
+    transform: translateX(
+      calc(-1 * var(--index) * ((100% - (var(--visible) - 1) * var(--gap)) / var(--visible) + var(--gap)))
+    );
+    transition: transform 0.45s ease;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  &__slide {
+    flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+    min-width: 0;
+  }
+
+  &__arrow {
+    @include reset-button;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 26px;
+    height: 44px;
+    margin-top: -22px;
+    @include flex-center;
+    color: $color-text-strong;
+    transition: opacity 0.2s, color 0.2s;
+
+    &:hover:not(:disabled) {
+      color: $color-primary;
+    }
+
+    &:disabled {
+      opacity: 0.25;
+      cursor: default;
+    }
+
+    &--prev {
+      left: -77px;
+    }
+
+    &--next {
+      right: -77px;
+    }
+
+    @include respond-below($bp-mobile) {
+      &--prev {
+        left: -38px;
+      }
+      &--next {
+        right: -38px;
+      }
+    }
+
+    @include focus-ring($color-primary);
+  }
+}

@@ -1,0 +1,39 @@
+// ==========================================================================
+// Design tokens. Para trocar a paleta do projeto, altere apenas este arquivo.
+// ==========================================================================
+
+// Cores (medidas diretamente nos frames do Figma quando possível)
+$color-primary: #3442b5; // azul da Home no Figma: botões COMPRAR, título da vitrine, aba ativa, "Frete grátis"
+$color-secondary: #3442b5; // "Ofertas do dia", categoria selecionada, destaques
+$color-link: #414eb9; // link do modal
+$color-highlight: #f7ca11; // "50% Off", botão do banner e COMPRAR do modal
+
+$color-text: #3f3f40;
+$color-text-strong: #2c2c2d;
+$color-text-muted: #575758;
+$color-text-light: #9b9b9c;
+$color-border: #eeeeee;
+$color-border-strong: #d9d9d9;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-input-bg: #f4f4f2;
+$color-overlay: rgba(0, 0, 0, 0.55);
+$color-navy: #1e1040; // texto escuro do logo / botões amarelos
+
+// Tipografia
+$font-family: 'Poppins', 'Segoe UI', Roboto, Arial, sans-serif;
+
+// Layout
+$container-width: 1280px;
+$showcase-max-width: 1736px;
+
+// Breakpoints
+$bp-tablet: 1100px;
+$bp-mobile: 768px;
+
+// Sombras e raios
+$shadow-card: 0 2px 14px rgba(0, 0, 0, 0.12);
+$shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.1);
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
